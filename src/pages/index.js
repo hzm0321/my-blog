@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "clsx";
-import diyHooks from "diy-hooks";
-
+import { useTodayPoetry } from "diy-hooks";
+import { Button } from "@chakra-ui/react";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
@@ -12,7 +12,7 @@ import HomepageFeatures from "../components/HomepageFeatures";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
-  const { content } = diyHooks.useTodayPoetry();
+  const { content } = useTodayPoetry();
 
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
@@ -20,6 +20,7 @@ function HomepageHeader() {
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <p>{content}</p>
+        <Button colorScheme="teal">Button</Button>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
